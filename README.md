@@ -1,4 +1,4 @@
-# PANACEA 🏥
+# PANACEA 
 ### Predictive Analytics for Clinical Early-warning and Assessment
 
 A clinical decision support system that helps doctors identify high-risk ICU patients early using real-time vitals data and machine learning.
@@ -14,7 +14,15 @@ PANACEA takes patient vitals from the MIMIC-III ICU dataset, runs them through a
 - 🟢 **LOW risk** (<0.4) → Stable
 
 ---
+##  Key Features
 
+*  ICU risk prediction using XGBoost
+*  Model explainability with SHAP (feature-level insights)
+*  FastAPI backend for real-time inference
+* Dashboard interface for monitoring predictions
+*  Modular ML pipeline (preprocessing + training)
+
+---
 ## Tech Stack
 
 | Layer | Technology |
@@ -26,6 +34,15 @@ PANACEA takes patient vitals from the MIMIC-III ICU dataset, runs them through a
 | Frontend | HTML, CSS, JavaScript |
 | Dataset | MIMIC-III (PhysioNet) |
 
+---
+##  Team
+
+Developed during a hackathon by:
+
+* Sreansh Verma 
+* Mehreen Dhillon
+* Arunendra Bahadur Singh
+* Amya Rastogi
 ---
 
 ## Project Structure
@@ -153,3 +170,23 @@ This project uses [MIMIC-III](https://physionet.org/content/mimiciii/1.4/), a pu
 - [ ] Add authentication for clinical use
 
 ---
+##  My Contributions  
+- Acquired and preprocessed clinical data from the MIMIC-III dataset  
+- Trained and evaluated the machine learning model for ICU risk prediction  
+- Developed the risk analysis framework and scoring logic  
+- Designed a custom risk scoring system inspired by clinical scoring methods
+
+---
+##  Future Improvements
+
+* Deploy as a cloud-based service (AWS / GCP)
+* Improve model performance and validation
+* Add real-time ICU monitoring integration
+* Enhance UI/UX of dashboard
+* Extend the system to incorporate the MIMIC-IV dataset for enhanced data granularity and model accuracy, contingent on obtaining the necessary access permissions and licensing approvals.
+---
+
+## 📄 License
+
+This project was developed for educational and hackathon purposes.
+
