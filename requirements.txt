@@ -1,0 +1,21 @@
+# API
+fastapi
+uvicorn[standard]
+
+# ML
+xgboost
+scikit-learn
+shap
+numpy
+pandas
+
+# Config
+pydantic-settings
+
+# Templating
+jinja2
+python-multipart
+
+# Testing
+pytest
+httpx

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PANACEA Dashboard</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>PANACEA Dashboard</h1>
+    
+    <div id="statsBar" class="stats-bar">
+        <div class="stat-item total">
+            <div class="stat-number" id="totalPatients">--</div>
+            <div class="stat-label">Patients</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item high">
+            <div class="stat-number" id="highRisk">--</div>
+            <div class="stat-label">High</div>
+        </div>
+        <div class="stat-item medium">
+            <div class="stat-number" id="mediumRisk">--</div>
+            <div class="stat-label">Medium</div>
+        </div>
+        <div class="stat-item low">
+            <div class="stat-number" id="lowRisk">--</div>
+            <div class="stat-label">Low</div>
+        </div>
+    </div>
+    
+    <div id="patientGrid" class="patient-grid">Loading...</div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <div id="modalBody"></div>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
