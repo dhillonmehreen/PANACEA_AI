@@ -137,19 +137,22 @@ Visit `http://localhost:8000/dashboard`
 
 ---
 
-## Dataset
-
-This project uses [MIMIC-III](https://physionet.org/content/mimiciii/1.4/), a publicly available ICU database from Beth Israel Deaconess Medical Center. Access requires credentialed PhysioNet registration.
-
-**MIMIC-III data is not included in this repository.**
-
----
-
 ## Roadmap
-
-- [ ] Fix class imbalance with SMOTE / class weighting
-- [ ] Add time-series trend view per patient
+ 
+- [ ] Fix class imbalance with SMOTE / class weighting → improve AUROC
+- [ ] Add per-patient time-series trend view
 - [ ] Dockerize for deployment
 - [ ] Add authentication for clinical use
-
 ---
+ 
+## Dataset
+ 
+This project uses [MIMIC-III](https://physionet.org/content/mimiciii/1.4/), a publicly available critical care database from Beth Israel Deaconess Medical Center. Access requires credentialed PhysioNet registration.
+ 
+**MIMIC-III data is not included in this repository.**
+ 
+---
+ 
+## Disclaimer
+ 
+PANACEA is a research and educational project. It is **not validated for clinical use** and should not be used to make real patient care decisions.
