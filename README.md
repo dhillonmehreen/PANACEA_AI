@@ -1,36 +1,46 @@
-# PANACEA 🏥
-### Predictive Analytics for Clinical Early-warning and Assessment
+#  PANACEA AI
 
-A clinical decision support system that helps doctors identify high-risk ICU patients early using real-time vitals data and machine learning.
+**AI-Powered Clinical Decision Support System for ICU Risk Prediction**
 
 ---
 
-## What it does
+#  What It Does
 
 PANACEA takes patient vitals from the MIMIC-III ICU dataset, runs them through a trained XGBoost model, and surfaces a risk score for each patient on a live dashboard. High-risk patients are flagged immediately so clinical staff can prioritize intervention.
 
-- 🔴 **HIGH risk** (>0.7) → Immediate attention required
-- 🟡 **MEDIUM risk** (0.4–0.7) → Monitor closely  
-- 🟢 **LOW risk** (<0.4) → Stable
+* 🔴 **HIGH Risk** (> 0.7) → Immediate attention required
+* 🟡 **MEDIUM Risk** (0.4–0.7) → Monitor closely
+* 🟢 **LOW Risk** (< 0.4) → Stable
 
 ---
 
-## Tech Stack
+#  Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Backend API | FastAPI |
-| ML Model | XGBoost |
-| Explainability | SHAP |
-| Data Processing | Pandas, NumPy |
-| Frontend | HTML, CSS, JavaScript |
-| Dataset | MIMIC-III (PhysioNet) |
+* Python
+* FastAPI
+* XGBoost
+* Pandas
+* NumPy
+* Scikit-learn
+* SHAP
+* HTML/CSS/JavaScript
 
 ---
 
-## Project Structure
+#  Features
 
-```
+* ICU patient risk prediction using machine learning
+* Data preprocessing and feature engineering pipeline
+* Interactive dashboard for patient monitoring
+* Explainable AI insights using SHAP
+* FastAPI-powered backend
+* Modular and scalable architecture
+
+---
+
+#  Project Structure
+
+```text
 PANACEA/
 │   requirements.txt
 │   .env.example
@@ -69,90 +79,137 @@ PANACEA/
 
 ---
 
-## API Endpoints
+#  API Endpoints
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/health` | Server + model status |
-| GET | `/patients` | All patients sorted by risk |
-| GET | `/patient/{id}` | Single patient detail + SHAP explanation |
-| GET | `/dashboard` | Live monitoring dashboard |
+| Method | Endpoint        | Description                              |
+| ------ | --------------- | ---------------------------------------- |
+| GET    | `/health`       | Server + model status                    |
+| GET    | `/patients`     | All patients sorted by risk              |
+| GET    | `/patient/{id}` | Single patient detail + SHAP explanation |
+| GET    | `/dashboard`    | Live monitoring dashboard                |
 
 ---
 
-## Getting Started
+#  Getting Started
 
-### 1. Clone the repo
+## 1. Clone the Repository
+
 ```bash
 git clone https://github.com/yourusername/panacea.git
 cd panacea
 ```
 
-### 2. Install dependencies
+## 2. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Set up environment
+## 3. Set Up Environment
+
 ```bash
 cp .env.example .env
 ```
 
-### 4. Add artifacts and data
-Download the model artifacts and place them in `artifacts/`.  
-Download MIMIC-III data from [PhysioNet](https://physionet.org/content/mimiciii/1.4/) and place CSVs in `data/mimic-iii/`.
+## 4. Add Artifacts and Data
 
-### 5. Run the pipeline (if retraining)
+Download the model artifacts and place them in `artifacts/`.
+
+Download MIMIC-III data from PhysioNet and place CSVs in:
+
+```text
+data/mimic-iii/
+```
+
+## 5. Run the Pipeline (If Retraining)
+
 ```bash
 python pipeline/feature_pipeline.py
 python pipeline/train_model.py
 ```
 
-### 6. Start the server
+## 6. Start the Server
+
 ```bash
 uvicorn app.main:app --reload
 ```
 
-Visit `http://localhost:8000/dashboard`
+Visit:
+
+```text
+http://localhost:8000/dashboard
+```
 
 ---
 
-## Model Performance
+#  Model Performance
 
-| Metric | Value |
-|---|---|
-| AUROC | 0.333 |
-| Sensitivity | 1.00 |
-| Specificity | 0.00 |
+| Metric      | Value |
+| ----------- | ----- |
+| AUROC       | 0.333 |
+| Sensitivity | 1.00  |
+| Specificity | 0.00  |
 
-> ⚠️ **Note:** The model currently flags all patients as positive (high sensitivity, zero specificity). This is a known class imbalance issue in the MIMIC-III subset used. The pipeline and dashboard architecture are production-ready — improving model performance with better sampling (SMOTE, class weights) is the next step.
+>  **Note:** The model currently flags all patients as positive (high sensitivity, zero specificity). This is a known class imbalance issue in the MIMIC-III subset used. The pipeline and dashboard architecture are production-ready—improving model performance with better sampling (SMOTE, class weights) is the next step.
 
 ---
 
-## Tests
+#  Tests
 
 ![Tests](tests_screenshot.png)
 
-**20/20 passing | 0 warnings**
+**20/20 Passing | 0 Warnings**
 
 ---
 
-## Roadmap
- 
-- [ ] Fix class imbalance with SMOTE / class weighting → improve AUROC
-- [ ] Add per-patient time-series trend view
-- [ ] Dockerize for deployment
-- [ ] Add authentication for clinical use
----
- 
-## Dataset
- 
-This project uses [MIMIC-III](https://physionet.org/content/mimiciii/1.4/), a publicly available critical care database from Beth Israel Deaconess Medical Center. Access requires credentialed PhysioNet registration.
- 
+#  Dataset
+
+This project uses MIMIC-III, a publicly available ICU database from Beth Israel Deaconess Medical Center. Access requires credentialed PhysioNet registration.
+
 **MIMIC-III data is not included in this repository.**
- 
+
 ---
- 
-## Disclaimer
- 
-PANACEA is a research and educational project. It is **not validated for clinical use** and should not be used to make real patient care decisions.
+
+# Roadmap
+
+* [ ] Fix class imbalance with SMOTE / class weighting
+* [ ] Add time-series trend view per patient
+* [ ] Dockerize for deployment
+* [ ] Add authentication for clinical use
+
+---
+
+#  My Contributions
+
+As part of the PANACEA AI project, my contributions included:
+
+* Designed a patient risk assessment methodology using clinical parameters extracted from the MIMIC-III dataset.
+* Developed a scoring framework to categorize patients into different risk levels based on predicted outcomes and vital indicators.
+* Analyzed the impact of individual clinical features on overall patient risk.
+* Evaluated risk thresholds and classification performance to improve interpretability for healthcare professionals.
+* Assisted in validating the scoring logic against model predictions and patient records.
+
+---
+
+#  Project Goal
+
+The primary objective of PANACEA AI is to support healthcare professionals by providing accurate, explainable, and timely risk assessments for ICU patients, enabling better decision-making and improving patient outcomes.
+
+---
+
+#  Team
+
+* Sreansh Verma
+* Arunendra Bahadur Singh
+* Mehreen Dhillon
+* Amya Rastogi
+
+---
+
+#  Future Improvements
+
+* Deploy as a cloud-based service (AWS / GCP)
+* Improve model performance and validation
+* Add real-time ICU monitoring integration
+* Enhance UI/UX of dashboard
+* Extend the system to incorporate the MIMIC-IV dataset for enhanced data granularity and model accuracy, contingent on obtaining the necessary access permissions and licensing approvals.
